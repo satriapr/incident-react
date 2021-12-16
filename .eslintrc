@@ -1,0 +1,36 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "ignorePatterns": ["src/**/__tests__", "src/utils"],
+  "rules": {
+    "comma-dangle": "off",
+    "operator-linebreak":"off",
+    "arrow-body-style":"off",
+    "object-curly-newline":"off",
+    "no-use-before-define":"off",
+    "no-confusing-arrow":"off",
+    "implicit-arrow-linebreak":"off",
+    "no-return-await":"off",
+    "react/jsx-curly-newline":"off",
+    "indent":"warn",
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "radix": ["warn"],
+    "react/sort-comp": ["warn"],
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      },
+    ],
+  }
+}

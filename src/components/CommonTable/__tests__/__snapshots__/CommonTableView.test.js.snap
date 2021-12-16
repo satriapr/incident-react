@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommonTable Component snapshots CommonTable props 1`] = `ShallowWrapper {}`;

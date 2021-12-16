@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Incident Management
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple Incident Management dashboard using React.js, generated using create-react-app
 
-## Available Scripts
+## Technical overview
 
-In the project directory, you can run:
+### I. Main dependency libraries
+- [MaterialUI](https://mui.com/): Material UI Library. Reasons for using this:
+    - Given the limited time, we can focus more on the overall architecture and structure.
+    - One of the most popular UI library and easily integrated with another library. E.g. react-hook-form
+- [Axios](https://github.com/axios/axios): promise based HTTP client
+- [Lodash](https://lodash.com/): functional library for general use
+- [Jest](https://jestjs.io/docs/en/getting-started) and [Enzyme](https://airbnb.io/enzyme/docs/api/): js testing framework
+- [PropTypes](https://github.com/facebook/prop-types) Runtime type checking for React props and similar objects.
+- [ReactHookForm](https://react-hook-form.com/) Form handling, using hooks
+- [ESLint](https://eslint.org/) Javascript linter for ES pattern
+- [Prettier](https://prettier.io/) Code formatter
+- Other supporting libraries, can be found in package.json
 
-### `yarn start`
+### II. Source code architecture
+- components folder: Re-usable component, contain stateless component and hooks
+- constants folder: Constant
+- modules folder: Web pages
+- services: Interaction with API
+- utils: Helper
+- *View file: UI of the screen
+- *Handler file: Hooks, event handler, logic
+- .test file: Testing
+- Not usingTypescript because I think React is going more functional with hooks, hence I'm using PropTypes to check props
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### III. Run and Test
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To run project (debug):
+```bash
+npm i && npm start
+```
 
-### `yarn test`
+To run project (docker):
+```bash
+docker load -i incident-react.tar
+docker run -it -p 3001:3000 incident-react
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run test:
+```bash
+npm test
+```
 
-### `yarn build`
+## What can be improved (this is not done because of time limit to do both BE and FE, also because of work load in current company)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### I. Feature
+- Currently user selection only simulated using dropdown. In real app, Should use login and auth.
+- There should be a success/error message, maybe a toast or snackbar once successfully create/update/delete something.
+- Create form can be improved by adding Rich Text Editor and upload image, because usually when reporting incident the user will attach screenshot.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### II. Code and library
+- Currently all data saved to local state. We should use state container instead, so we don't need to request API everytime we need a data and to avoid prop drilling. E.g. using Redux.
+- `Priority` and `Status` currently hardcoded in Constant. Should store in DB instead.
+- All text and label should be using localization
+- Currently handler (CommonTableHandler.js and HomeHandler.js) have a quite good Unit Test coverage, but the rest (mostly *View.js file) only tested by comparing snapshot, and coverage is quite low. Should improve by simulating render and adding integration & end-to-end test. 
+![](https://i.ibb.co/zV4CYSj/Screen-Shot-2021-12-16-at-4-49-32-PM.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
