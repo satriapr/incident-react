@@ -6,7 +6,7 @@ This is a simple Incident Management dashboard using React.js, generated using c
 
 ### I. Main dependency libraries
 - [MaterialUI](https://mui.com/): Material UI Library. Reasons for using this:
-    - Given the limited time, we can focus more on the overall architecture and structure.
+    - Given the limited time, we can focus more on the overall code, architecture and structure.
     - One of the most popular UI library and easily integrated with another library. E.g. react-hook-form
 - [Axios](https://github.com/axios/axios): promise based HTTP client
 - [Lodash](https://lodash.com/): functional library for general use
@@ -30,15 +30,15 @@ This is a simple Incident Management dashboard using React.js, generated using c
 
 ### III. Run and Test
 
-To run project (debug):
+To run project (debug - http://localhost:3000):
 ```bash
 npm i && npm start
 ```
 
-To run project (docker):
+To run project (docker - http://localhost:3000):
 ```bash
-docker load -i incident-react.tar
-docker run -it -p 3001:3000 incident-react
+docker pull satriap/incident-react:latest
+docker run -it -p 3000:3000 satriap/incident-react
 ```
 
 To run test:
